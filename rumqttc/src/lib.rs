@@ -355,12 +355,12 @@ impl Default for TlsConfiguration {
     fn default() -> Self {
         let mut root_cert_store = RootCertStore::empty();
         for cert in load_native_certs().expect("could not load platform certs") {
-            root_cert_store.add(cert).unwrap();
+            root_cert_store.add(&cert).unwrap();
         }
         let tls_config = ClientConfig::builder()
+            .with_safe_defaults()
             .with_root_certificates(root_cert_store)
             .with_no_client_auth();
-
         Self::Rustls(Arc::new(tls_config))
     }
 }
