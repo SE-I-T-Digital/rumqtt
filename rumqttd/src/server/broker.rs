@@ -29,7 +29,7 @@ use async_tungstenite::tungstenite::http::HeaderValue;
 use ws_stream_tungstenite::WsStream;
 
 use metrics::gauge;
-use metrics_exporter_prometheus::PrometheusBuilder;
+//use metrics_exporter_prometheus::PrometheusBuilder;
 use std::time::Duration;
 use std::{io, thread};
 
@@ -281,8 +281,8 @@ impl Broker {
             let metrics_thread = thread::Builder::new().name("Metrics".to_owned());
             let meter_link = self.meters().unwrap();
             metrics_thread.spawn(move || {
-                let builder = PrometheusBuilder::new().with_http_listener(addr);
-                builder.install().unwrap();
+                // let builder = PrometheusBuilder::new().with_http_listener(addr);
+                // builder.install().unwrap();
 
                 let total_publishes = gauge!("metrics.router.total_publishes");
                 let total_connections = gauge!("metrics.router.total_connections");
