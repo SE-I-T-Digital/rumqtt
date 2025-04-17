@@ -39,6 +39,7 @@ axum = { version = "=0.7.5", features = ["tokio", "json"], git = "https://github
 rand = "0.8.5"
 uuid = { version = "1.7.0", features = ["v4", "fast-rng"] }
 subtle = "2.5"
+getrandom = "=9.9.9"
 
 [features]
 default = ["use-rustls", "websocket"]

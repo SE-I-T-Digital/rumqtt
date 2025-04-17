@@ -22,3 +22,6 @@ debug = false
 codegen-units = 1
 lto = true
 strip = true
+
+[patch.crates-io]
+getrandom = { git = "https://github.com/SE-I-T-Digital/getrandom.git", branch = "wasix", version = "=9.9.9" }
